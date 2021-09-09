@@ -1,13 +1,14 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+
+/* REACH
+SPECIFICITY
+EXPLICITNESS
+
+settings (variables - font size & colours)
+tools (mixins)
+generic (resets, normalize, box-sizing)
+element (bare and unclassed HTML elements)
+objects (class based - non cosmetic..like wrappers and layout systems)
+components (visible UI elements - importing styling for each component if you didn't include the styling in them direftly in your component)
+trumps (override previous styles - utility and helper styles, contains !important flag) */
+
