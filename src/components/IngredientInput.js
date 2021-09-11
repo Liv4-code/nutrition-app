@@ -3,19 +3,20 @@ import React from 'react'
 class IngredientInput extends React.Component {
     state = {text: ''};
 
-    onFormSubmit(e){
+    onFormSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state.text);
+
+        this.props.formSubmitted(this.state.text);
     }
     
     render(){
         return(
-            <form onSubmit={(e) => this.onFormSubmit(e)}>
+            <form onSubmit={this.onFormSubmit}>
                 <div className="ui container">
                 <div className="ui input">
                     <input 
-                    type="text" 
-                    name="ingredient-input" 
+                    type="text"
+                    name="ingredient-input"
                     value={this.state.text}
                     onChange={e => this.setState({text: e.target.value})}
                     />
