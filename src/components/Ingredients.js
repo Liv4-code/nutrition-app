@@ -1,4 +1,5 @@
 import React from 'react';
+import TotalCalories from './TotalCalories';
 
 const Ingredients = (props) => {
 
@@ -12,7 +13,8 @@ const Ingredients = (props) => {
   return(
       <div className="list-items">
         {props.amount.length !== 0 ? newIngredient() : null}
-      </div>  
+        <TotalCalories />
+      </div>
     )
 }
 

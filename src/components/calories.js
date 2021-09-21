@@ -2,7 +2,6 @@ import React from 'react';
 import '../index.css';
 import Ingredients from './Ingredients.js'
 import IngredientInput from './IngredientInput.js';
-import TotalCalories from './TotalCalories.js'
 
 class Calories extends React.Component {
 
@@ -32,8 +31,6 @@ class Calories extends React.Component {
                     <Ingredients amount={this.state.nutritionData}/>
                 </ul>
 
-                <TotalCalories />
-    
             </div>
         )
     }
