@@ -16,9 +16,16 @@
     padding: 25px;
 }
 
+.list-group {
+    margin: 20px;
+}
+
 .list-group-item {
-    margin: 25px;
-    padding: 12px;
+    margin: 5px;
+}
+
+.list-group-item+.list-group-item {
+    border-top-width: 1px;
 }
 
 .badge {
