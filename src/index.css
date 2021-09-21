@@ -1,14 +1,26 @@
+.component-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
+.ui.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
-/* REACH
-SPECIFICITY
-EXPLICITNESS
+.input {
+    padding: 25px;
+}
 
-settings (variables - font size & colours)
-tools (mixins)
-generic (resets, normalize, box-sizing)
-element (bare and unclassed HTML elements)
-objects (class based - non cosmetic..like wrappers and layout systems)
-components (visible UI elements - importing styling for each component if you didn't include the styling in them direftly in your component)
-trumps (override previous styles - utility and helper styles, contains !important flag) */
+.list-group-item {
+    margin: 25px;
+    padding: 12px;
+}
 
+.badge {
+    margin-left: 30px; 
+}

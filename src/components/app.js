@@ -1,10 +1,11 @@
 import React from 'react';
+import '../index.css';
 import Calories from './calories.js';
 
 const App = () => {
 
         return(
-            <div style={{display: 'flex', flexDirection: 'column',alignItems: 'center'}}>
+            <div className="component-container">
                 <h1>Nutri-Fit Assistant</h1>    
                 <Calories />
             </div>

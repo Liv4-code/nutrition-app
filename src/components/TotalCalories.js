@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
 
 const TotalCalories = () => {
+
     return(
-        <div>
-            <label HTMLfor="total-calories">Total Calories:</label>
-            <output name="total-calories" HTMLfor="total-calories">0</output>
+        <div style={{fontSize: '20px', padding: '20px'}}>
+            <label htmlFor="total-calories">Total Calories:</label>
+            <output name="total-calories" htmlFor="total-calories"></output>
         </div>
     )
 }
