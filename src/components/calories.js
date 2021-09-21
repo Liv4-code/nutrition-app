@@ -14,7 +14,7 @@ class Calories extends React.Component {
             return response.json();
         })
         .then(data => {
-            this.setState({nutritionData: data.hits[0].fields});
+            this.setState({nutritionData: this.state.nutritionData.concat(data.hits[0].fields)});
         })
         .catch(err => {
             console.log(err);
