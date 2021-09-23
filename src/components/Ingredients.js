@@ -3,6 +3,8 @@ import TotalCalories from './TotalCalories';
 
 class Ingredients extends React.Component {
 
+  state = {total: null};
+
   constructor(props) {
     super(props);
 
@@ -13,10 +15,9 @@ class Ingredients extends React.Component {
     console.log(this.itemCalRef);
   }
 
-  //Get a reference to each list-group-item using the ref system
-  //Receive whatever value that is returned from newIngredient function and append
+  //Receive whatever value that is returned and append
   // it to an array in state.
-  // Pass the state down to TotalCalories as a prop.
+  // Pass the state down to TotalCalories as a prop
 
   render(){
 
