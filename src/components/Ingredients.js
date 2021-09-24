@@ -11,13 +11,7 @@ class Ingredients extends React.Component {
     this.itemCalRef = React.createRef();
   }
 
-  componentDidUpdate = () => {
-    console.log(this.itemCalRef);
-  }
-
-  //Receive whatever value that is returned and append
-  // it to an array in state.
-  // Pass the state down to TotalCalories as a prop
+        // this.itemCalRef.current.addEventListener('load', this.logTotal)
 
   render(){
 
@@ -31,7 +25,7 @@ class Ingredients extends React.Component {
   return(
       <div className="list-items">
         {this.props.amount.length !== 0 ? newIngredient() : null}
-        <TotalCalories total={this.props.amount.length}/>
+        <TotalCalories total={this.setState({total: this.itemCalRef.current.innerHTML})}/>
       </div>
     )
   }
