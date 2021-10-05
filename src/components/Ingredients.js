@@ -2,7 +2,7 @@ import React from "react";
 import TotalCalories from "./TotalCalories";
 
 class Ingredients extends React.Component {
-    state = { itemCalories: [] };
+    state = { itemCalories: null };
 
     constructor(props) {
         super(props);
