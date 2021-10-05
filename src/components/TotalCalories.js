@@ -20,7 +20,7 @@ class TotalCalories extends React.Component {
                     name="total-calories"
                     htmlFor="total-calories"
                 >
-                    {this.state.totalCalories}
+                    {Math.round(this.state.totalCalories)}
                 </output>
             </div>
         );
