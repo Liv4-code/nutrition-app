@@ -18,6 +18,7 @@ class IngredientInput extends React.Component {
                     <div className="ui input">
                         <input
                             type="text"
+                            placeholder="Add an ingredient"
                             name="ingredient-input"
                             value={this.state.text}
                             onChange={(e) =>
