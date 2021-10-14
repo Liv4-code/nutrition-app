@@ -1,3 +1,7 @@
+h1:first-child {
+    margin-top: 50px;
+}
+
 .component-container {
     display: flex;
     flex-direction: column;
@@ -24,10 +28,10 @@
     margin: 5px;
 }
 
-.list-group-item+.list-group-item {
+.list-group-item + .list-group-item {
     border-top-width: 1px;
 }
 
 .badge {
-    margin-left: 30px; 
+    margin-left: 30px;
 }
