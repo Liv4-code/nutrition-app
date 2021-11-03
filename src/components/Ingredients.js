@@ -1,4 +1,5 @@
 import React from "react";
+import DeleteButton from "./DeleteButton";
 import TotalCalories from "./TotalCalories";
 
 class Ingredients extends React.Component {
@@ -33,6 +34,7 @@ class Ingredients extends React.Component {
                         >
                             {amount.nf_calories}
                         </span>
+                        <DeleteButton />
                     </li>
                 );
             });
