@@ -1,7 +1,7 @@
 import React from "react";
 import "../index.css";
 
-const DeleteButton = () => {
+const DeleteButton = (props) => {
     return (
         <button className="delete-button" type="button">
             <svg

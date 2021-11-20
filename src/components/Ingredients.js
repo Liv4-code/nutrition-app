@@ -3,7 +3,7 @@ import DeleteButton from "./DeleteButton";
 import TotalCalories from "./TotalCalories";
 
 class Ingredients extends React.Component {
-    state = { itemCalories: null };
+    state = { itemCalories: null, display: "flex" };
 
     constructor(props) {
         super(props);
@@ -19,13 +19,22 @@ class Ingredients extends React.Component {
         }
     }
 
+    // if element target was clicked then update state to display none
+
+    deleteFunc = (e) => {
+        console.log(e);
+        this.setState({ display: "none" });
+    };
+
     render() {
         const newIngredient = () =>
             this.props.amount.map((amount, i) => {
                 return (
                     <li
                         key={i}
-                        className="list-group-item d-flex justify-content-between align-items-center"
+                        className="list-group-item justify-content-between align-items-center"
+                        style={{ display: `${this.state.display}` }}
+                        onClick={this.deleteFunc}
                     >
                         {JSON.stringify(amount.item_name)}
                         <span
