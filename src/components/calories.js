@@ -4,7 +4,7 @@ import Ingredients from "./Ingredients.js";
 import IngredientInput from "./IngredientInput.js";
 
 class Calories extends React.Component {
-    state = { nutritionData: [], minusCalories: 0 };
+    state = { nutritionData: [] };
 
     onSearchSubmit = async (text) => {
         try {
@@ -22,17 +22,13 @@ class Calories extends React.Component {
         }
     };
 
-    deleteIngredient = (ingredient, caloriesToMinus) => {
-        this.setState(this.state.nutritionData.pop(ingredient));
-        if (this.state.nutritionData === []) {
-            this.setState({ minusCalories: 0 });
-        } else {
-            this.setState({ minusCalories: caloriesToMinus });
-        }
+    deleteIngredient = (ingredient) => {
+        let filteredArray = this.state.nutritionData.filter(
+            (item, index) => index !== ingredient
+        );
+        this.setState({ nutritionData: filteredArray });
     };
-    // reduce should parse only the current value
-    // parseInt should pass the base as second param to force decimal parse
-    // reduce should pass in the initial value as the second param
+
     totalCalories = (nutritionData) => {
         const total = nutritionData
             .map((item) => item.nf_calories)
@@ -44,9 +40,7 @@ class Calories extends React.Component {
         return (
             <div className="component-container">
                 <h2>Ingredient List Calorie Counter</h2>
-
-                <IngredientInput formSubmitted={this.onSearchSubmit} />
-
+                <IngredientInput onSearchSubmit={this.onSearchSubmit} />
                 <ul className="list-group">
                     <Ingredients
                         amount={this.state.nutritionData}

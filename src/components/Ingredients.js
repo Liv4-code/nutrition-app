@@ -3,20 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 class Ingredients extends React.Component {
-    state = { itemCalories: 0 };
-
     constructor(props) {
         super(props);
 
         this.itemCalRef = React.createRef();
-    }
-
-    componentDidUpdate(prevProps) {
-        if (prevProps.amount !== this.props.amount) {
-            this.setState({
-                itemCalories: Number(this.itemCalRef.current.innerHTML),
-            });
-        }
     }
 
     render() {
@@ -37,12 +27,7 @@ class Ingredients extends React.Component {
                         <FontAwesomeIcon
                             icon={faTrash}
                             style={{ color: "red" }}
-                            onClick={() =>
-                                this.props.deleteIngredient(
-                                    i,
-                                    amount.nf_calories
-                                )
-                            }
+                            onClick={() => this.props.deleteIngredient(i)}
                         />
                     </li>
                 );

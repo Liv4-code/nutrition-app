@@ -7,7 +7,7 @@ class IngredientInput extends React.Component {
     onFormSubmit = (e) => {
         e.preventDefault();
 
-        this.props.formSubmitted(this.state.text);
+        this.props.onSearchSubmit(this.state.text);
         this.setState({ text: "" });
     };
 
@@ -18,7 +18,7 @@ class IngredientInput extends React.Component {
                     <div className="ui input">
                         <input
                             type="text"
-                            placeholder="Add an ingredient"
+                            placeholder="Name of ingredient"
                             name="ingredient-input"
                             value={this.state.text}
                             onChange={(e) =>
@@ -27,7 +27,7 @@ class IngredientInput extends React.Component {
                         />
                     </div>
                     <button className="ui button" type="submit">
-                        Submit
+                        Add
                     </button>
                 </div>
             </form>
