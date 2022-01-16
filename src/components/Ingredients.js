@@ -1,9 +1,9 @@
 import React from "react";
-import DeleteButton from "./DeleteButton";
-import TotalCalories from "./TotalCalories";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 class Ingredients extends React.Component {
-    state = { itemCalories: null, display: "flex" };
+    state = { itemCalories: 0 };
 
     constructor(props) {
         super(props);
@@ -19,22 +19,13 @@ class Ingredients extends React.Component {
         }
     }
 
-    // if element target was clicked then update state to display none
-
-    deleteFunc = (e) => {
-        console.log(e);
-        this.setState({ display: "none" });
-    };
-
     render() {
         const newIngredient = () =>
             this.props.amount.map((amount, i) => {
                 return (
                     <li
                         key={i}
-                        className="list-group-item justify-content-between align-items-center"
-                        style={{ display: `${this.state.display}` }}
-                        onClick={this.deleteFunc}
+                        className="list-group-item d-flex justify-content-between align-items-center"
                     >
                         {JSON.stringify(amount.item_name)}
                         <span
@@ -43,7 +34,16 @@ class Ingredients extends React.Component {
                         >
                             {amount.nf_calories}
                         </span>
-                        <DeleteButton />
+                        <FontAwesomeIcon
+                            icon={faTrash}
+                            style={{ color: "red" }}
+                            onClick={() =>
+                                this.props.deleteIngredient(
+                                    i,
+                                    amount.nf_calories
+                                )
+                            }
+                        />
                     </li>
                 );
             });
@@ -51,7 +51,6 @@ class Ingredients extends React.Component {
         return (
             <div className="list-items">
                 {this.props.amount.length !== 0 ? newIngredient() : null}
-                <TotalCalories total={this.state.itemCalories} />
             </div>
         );
     }

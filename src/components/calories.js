@@ -4,7 +4,7 @@ import Ingredients from "./Ingredients.js";
 import IngredientInput from "./IngredientInput.js";
 
 class Calories extends React.Component {
-    state = { nutritionData: [] };
+    state = { nutritionData: [], minusCalories: 0 };
 
     onSearchSubmit = async (text) => {
         try {
@@ -14,13 +14,30 @@ class Calories extends React.Component {
             const data = await res.json();
             const newNutritionData = data.hits[0].fields;
             this.setState({
-                nutritionData: this.state.nutritionData.concat(
-                    newNutritionData
-                ),
+                nutritionData:
+                    this.state.nutritionData.concat(newNutritionData),
             });
         } catch (e) {
             console.log(e);
         }
+    };
+
+    deleteIngredient = (ingredient, caloriesToMinus) => {
+        this.setState(this.state.nutritionData.pop(ingredient));
+        if (this.state.nutritionData === []) {
+            this.setState({ minusCalories: 0 });
+        } else {
+            this.setState({ minusCalories: caloriesToMinus });
+        }
+    };
+    // reduce should parse only the current value
+    // parseInt should pass the base as second param to force decimal parse
+    // reduce should pass in the initial value as the second param
+    totalCalories = (nutritionData) => {
+        const total = nutritionData
+            .map((item) => item.nf_calories)
+            .reduce((prevItem, currentItem) => prevItem + currentItem, 0);
+        return total;
     };
 
     render() {
@@ -31,8 +48,21 @@ class Calories extends React.Component {
                 <IngredientInput formSubmitted={this.onSearchSubmit} />
 
                 <ul className="list-group">
-                    <Ingredients amount={this.state.nutritionData} />
+                    <Ingredients
+                        amount={this.state.nutritionData}
+                        deleteIngredient={this.deleteIngredient}
+                    />
                 </ul>
+                <div style={{ fontSize: "20px", padding: "20px" }}>
+                    <label htmlFor="total-calories">Total Calories:</label>
+                    <output
+                        style={{ padding: "10px" }}
+                        name="total-calories"
+                        htmlFor="total-calories"
+                    >
+                        {this.totalCalories(this.state.nutritionData)}
+                    </output>
+                </div>
             </div>
         );
     }
